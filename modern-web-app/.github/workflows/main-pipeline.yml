@@ -16,3 +16,12 @@ jobs:
            cd modern-web-app
            npm ci
            npm run test:unit
+    Build:
+      runs-on: ubuntu-latest
+      steps:
+       - uses: actions/checkout@v3
+       - uses: actions/setup-node@v1
+         with: 
+           node-version: 18
+       - name: Lanzar build 
+

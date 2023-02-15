@@ -1,0 +1,17 @@
+name: Main Pipeline
+on:
+ workflow_dispatch:
+ push:
+  branches:
+  - "main" 
+
+jobs:  
+    Unittest:
+      runs-on: ubuntu-latest
+      steps: 
+        - name: "Lanzar test unitarios"
+          run: | 
+           set -ev
+           cd modern-web-app
+           npm i
+           npm run test:unit

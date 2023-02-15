@@ -1,0 +1,9 @@
+name: CI/CD Pipeline 
+
+on: push
+jobs:
+   hello-world:
+     runs-on: ubuntu-latest
+     steps:
+      - name: Paso Hola Mundo
+        run: echo "Hello World!"

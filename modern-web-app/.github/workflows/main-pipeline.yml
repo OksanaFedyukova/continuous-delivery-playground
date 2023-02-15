@@ -5,13 +5,19 @@ on:
   branches:
   - "main" 
 
-jobs:  
-    Unittest:
-      runs-on: ubuntu-latest
-      steps: 
-        - name: "Lanzar test unitarios"
-          run: | 
-           set -ev
-           cd modern-web-app
-           npm i
-           npm run test:unit
+jobs:
+  test:
+    name: Test
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+      - name: Setup Node.js ${{ env.NODE_VERSION }}
+        uses: actions/setup-node@v1
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+      - name: Run unit tests
+        run: |
+          npm ci
+          npm run test:unit
